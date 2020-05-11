@@ -11,6 +11,7 @@ This project aims to build a simple web application that allows a single player 
 ## API and Data Sample
 
 The game part of the project uses the APIs from http://jservice.io/.
+
 It will make 2 API calls from the data source:
 1. Get random categories from /api/categories
 2. Fetch the clues for each category generated from /api/clues
@@ -41,9 +42,15 @@ It will make 2 API calls from the data source:
 ```
 
 ## Wireframes
+Home Page (Mobile): 
 
-Mobile:
-Desktop: 
+![Home Page](https://res.cloudinary.com/dvmkqx6v1/image/upload/v1589165143/Mobile_1_ktlt1a.png)
+
+
+Game Page (Mobile): 
+
+![Game Page](https://res.cloudinary.com/dvmkqx6v1/image/upload/v1589165143/Mobile_2_ls4oaq.png)
+
 
 ### MVP/PostMVP  
 #### MVP 
@@ -56,6 +63,7 @@ Desktop:
 - Be able to exit the game at any time and starts over
 
 #### PostMVP  
+
 - Add second API to greet users in their native language on the home page
 - Add third API to direct users to Wikipedia to learn more about the specific answer
 - Add a timer to count down answering time
@@ -74,6 +82,7 @@ Desktop:
 
 ## Priority Matrix
 
+![Priority Matrix](https://res.cloudinary.com/dvmkqx6v1/image/upload/v1589166353/Priority_Matrix_brxnhr.png)
 
 
 ## Timeframes
