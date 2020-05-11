@@ -2,7 +2,7 @@
 
 ## Project Name
 
-Let's Play a Jeopardy!
+Let's Play Jeopardy!
 
 ## Project Description
 
