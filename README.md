@@ -2,78 +2,97 @@
 
 ## Project Name
 
-Play a Jeopardy!
+Let's Play a Jeopardy!
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+This project aims to build a simple web application that allows a single player to practice the popular American game Jeopardy. It has a similar make and feel of the real game with the real clues.
 
 ## API and Data Sample
 
-Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
+The game part of the project uses the APIs from http://jservice.io/.
+It will make 2 API calls from the data source:
+1. Get random categories from /api/categories
+2. Fetch the clues for each category generated from /api/clues
+
+#### API Data Sample (Clue)
+```json
+[
+    {
+        "id": 87878,
+        "answer": "Cory",
+        "question": "This character is \"in the House\"--the White House, that is--when his dad starts working there on this Disney show",
+        "value": 200,
+        "airdate": "2009-07-14T12:00:00.000Z",
+        "created_at": "2014-02-14T01:53:32.457Z",
+        "updated_at": "2014-02-14T01:53:32.457Z",
+        "category_id": 11540,
+        "game_id": null,
+        "invalid_count": null,
+        "category": {
+            "id": 11540,
+            "title": "kids' tv",
+            "created_at": "2014-02-14T01:53:32.255Z",
+            "updated_at": "2014-02-14T01:53:32.255Z",
+            "clues_count": 5
+        }
+    }
+]
+```
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+Mobile:
+Desktop: 
 
-### MVP/PostMVP
-
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
-
+### MVP/PostMVP  
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+- Create a game
+- See the Jeopardy table with 6 randomly chosen categories and clues with the money amount
+- Choose one clue each time
+- Enter the answer and see if it's right
+- Checks the scores based on right/wrong answers
+- Be able to exit the game at any time and starts over
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
-
-- Add second API
-- Use local storage to save user favorites
+- Add second API to greet users in their native language on the home page
+- Add third API to direct users to Wikipedia to learn more about the specific answer
+- Add a timer to count down answering time
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
-
 |  Day | Deliverable | Status
 |---|---| ---|
-|May 8| Project Prompt | Incomplete
-|May 9-10| Wireframes / Priority Matrix / Timeframes | Incomplete
-|May 11| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|May 12| Pseudocode / actual code | Incomplete
-|May 13| Initial Clickable Model  | Incomplete
-|May 14| MVP | Incomplete
-|May 15| Present | Incomplete
+|May 11| Project Prompt and Project Approval | WIP 
+|May 12| Core Application Structure and Pseudocode | 
+|May 13| Fetch random categories and clickable clues  |
+|May 13| Fetch clues from the API and check user input | 
+|May 14| Record user scores | 
+|May 14| MVP and finalize formatting | 
+|May 15| Present | 
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
+
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
-
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| HTML Structure | M | 2hrs|  |  |
+| Basic CSS | M | 2hrs|  |  |
+| Creating a game with random categories from the API | H | 4hrs|  |  |
+| Fetch the clues from the API for each category | H | 4hrs|  |  |
+| Check user answers and record scores | H | 4hrs|  |  |
+| Clickable clue popup and input form | H | 4hrs|  |  |
+| Track scores | H | 4hrs|  |  |
+| Finish/quit game and display results | H | 4hrs|  |  |
+| Additional styling | L | 4hrs|  |  |
+| Total | H | 32hrs|  |  |
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
-
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
-```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+
