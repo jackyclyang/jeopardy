@@ -3,11 +3,16 @@ body{
   font-family: Roboto, Helvetica, sans-serif;
 }
 heading{
-  font-weight: 900;
+  text-align: center;
+  background-color: coral;
+}
+h3{
   font-size: 24px;
   margin: 0 auto;
-  text-align: left;
-  height: 100px;
+  height: 20px;
+  padding: 20px;
+  background: url("giphy.gif");
+  background-size: cover;
 }
 footer{
   margin-bottom: 0px;
@@ -16,13 +21,59 @@ footer{
   text-align: center;
   padding: 2px 2px;
 }
+form{
+  text-align: center;
+}
+/* The Modal code from W3School: https://www.w3schools.com/howto/howto_css_modals.asp*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: rgb(228, 63, 63);
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 #game{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
-
+  background: pink;
+}
+#your-score{
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 10px;
 }
 .category-box{
   flex-direction: column;
@@ -30,7 +81,7 @@ footer{
   background: lightgrey;
   margin: 2px;
   text-align: center;
-  border-radius: 10px
+  border-radius: 10px;
 }
 .category-box .category{
   display: flex;
@@ -52,20 +103,27 @@ footer{
   color: #F7C800;
   padding: 10px;
 }
-#quit{
+.category-box .clue:hover{
+  cursor: pointer;
+  background: rgb(51, 59, 181);
+  background-size: cover;
+}
+.quit{
+  text-align: center;
   font-family: 'Roboto Condensed', Helvetica, sans-serif;
-  margin: 70px auto;
-  height: 40px;
-  padding: 4px 5px;
+  margin: 50px auto;
+  height: 50px;
+  width: 140px;
+  padding: 6px 24px;
   font-size: 20px;
-  border-radius: 20px;
+  border-radius: 25px;
   background: #070F7F;
   border: 4px solid white;
   color: white;
 }
-#quit:hover{
+.quit:hover{
   cursor: pointer;
-  background: url("https://media.giphy.com/media/dAWZiSMbMvObDWP3aA/giphy.gif"); /* from W3 School */
+  background: url("giphy.gif"); /* from W3 School */
   background-size: cover;
   border: 4px solid white;
   box-shadow: 0px 4px 6px grey;

@@ -14,61 +14,80 @@
 
 <body>
   <heading>
-    <span id="jeopardy">Let's Play Jeopardy!</span>
-    <button id='quit'>QUIT</button>
+    <h3>Let's Play Jeopardy!</h3>
+    <div id="your-score">My Score: </div>
   </heading>
 
   <div id="game">
     <div class="category-box">
       <div class="category">Category 1 Name Name Name Name</div>
-      <div class="clue">Clue 1</div>
-      <div class="clue">Clue 2</div>
-      <div class="clue">Clue 3</div>
-      <div class="clue">Clue 4</div>
-      <div class="clue">Clue 5</div>
+      <div class="clue">$200</div>
+      <div class="clue">$400</div>
+      <div class="clue">$600</div>
+      <div class="clue">$800</div>
+      <div class="clue">$1000</div>
     </div>
     <div class="category-box">
       <div class="category">Category 2 Name Name</div>
-      <div class="clue">Clue 1</div>
-      <div class="clue">Clue 2</div>
-      <div class="clue">Clue 3</div>
-      <div class="clue">Clue 4</div>
-      <div class="clue">Clue 5</div>
+      <div class="clue">$200</div>
+      <div class="clue">$400</div>
+      <div class="clue">$600</div>
+      <div class="clue">$800</div>
+      <div class="clue">$1000</div>
     </div>
     <div class="category-box">
       <div class="category">Category 3 Name</div>
-      <div class="clue">Clue 1</div>
-      <div class="clue">Clue 2</div>
-      <div class="clue">Clue 3</div>
-      <div class="clue">Clue 4</div>
-      <div class="clue">Clue 5</div>
+      <div class="clue">$200</div>
+      <div class="clue">$400</div>
+      <div class="clue">$600</div>
+      <div class="clue">$800</div>
+      <div class="clue">$1000</div>
     </div>
     <div class="category-box">
       <div class="category">Category 4 Name</div>
-      <div class="clue">Clue 1</div>
-      <div class="clue">Clue 2</div>
-      <div class="clue">Clue 3</div>
-      <div class="clue">Clue 4</div>
-      <div class="clue">Clue 5</div>
+      <div class="clue">$200</div>
+      <div class="clue">$400</div>
+      <div class="clue">$600</div>
+      <div class="clue">$800</div>
+      <div class="clue">$1000</div>
     </div>
     <div class="category-box">
       <div class="category">Category 5 Name</div>
-      <div class="clue">Clue 1</div>
-      <div class="clue">Clue 2</div>
-      <div class="clue">Clue 3</div>
-      <div class="clue">Clue 4</div>
-      <div class="clue">Clue 5</div>
+      <div class="clue">$200</div>
+      <div class="clue">$400</div>
+      <div class="clue">$600</div>
+      <div class="clue">$800</div>
+      <div class="clue">$1000</div>
     </div>
     <div class="category-box">
       <div class="category">Category 6 Name</div>
-      <div class="clue">Clue 1</div>
-      <div class="clue">Clue 2</div>
-      <div class="clue">Clue 3</div>
-      <div class="clue">Clue 4</div>
-      <div class="clue">Clue 5</div>
+      <div class="clue">$200</div>
+      <div class="clue">$400</div>
+      <div class="clue">$600</div>
+      <div class="clue">$800</div>
+      <div class="clue">$1000</div>
     </div>
   </div>
 
+  <form action="index.html">
+    <button class='quit'>I'M DONE</button>
+  </form>
+
+  <!-- Modal code from W3school: https://www.w3schools.com/howto/howto_css_modals.asp-->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <p id="detailed-clue">Your clue here.</p>
+      <form>
+        <input type="text" value="answer">
+        <button class='submit'>Submit</button>
+        <button class='give-up'>I give up</button>
+      </form>
+
+    </div>
+
+  </div>
 
 </body>
 <footer>

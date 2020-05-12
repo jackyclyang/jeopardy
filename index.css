@@ -17,7 +17,7 @@ footer{
 }
 #lets-play{
   background-image: linear-gradient(to bottom right,#070F7F, #A482C3 );   /* from W3 School */
-  background: url("https://media.giphy.com/media/dAWZiSMbMvObDWP3aA/giphy.gif"); /* from W3 School */
+  background: url("giphy.gif"); /* from W3 School */
   background-size: cover;
   color: white;
   margin: 0 auto;
@@ -47,7 +47,7 @@ footer{
 }
 #create-game:hover{
   cursor: pointer;
-  background: url("https://media.giphy.com/media/dAWZiSMbMvObDWP3aA/giphy.gif"); /* from W3 School */
+  background: url("giphy.gif"); /* from W3 School */
   background-size: cover;
   border: 4px solid white;
   box-shadow: 0px 4px 6px grey;
