@@ -7,6 +7,7 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap" rel="stylesheet">
   <script defer src="script.js"></script>
   <link rel="stylesheet" href="game.css">
   <title>Jeopardy</title>
@@ -15,7 +16,7 @@
 <body>
   <heading>
     <h3>Let's Play Jeopardy!</h3>
-    <div id="your-score">My Score: <span id="score-number">0</span></div>
+    <div id="my-score">My Score: <span id="score-number">0</span></div>
   </heading>
 
   <div id="game">
@@ -78,11 +79,15 @@
 
     <!-- Modal content -->
     <div class="modal-content">
+      <div class="modal-header">
+        <span class='close'>&#10005</span>
+        <span id="countdown">10</span>
+      </div>
       <p id="detailed-clue">Your clue here.</p>
       <form>
-        <input type="text" value="answer">
-        <button class='submit'>Submit</button>
-        <button class='give-up'>I give up</button>
+        <input type="text" placeholder="Answer here" value=""><br>
+        <button class='submit'>Submit</button><br>
+        <p id="correct-answer"></p>
       </form>
     </div>
 

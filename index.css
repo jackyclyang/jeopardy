@@ -2,6 +2,8 @@ body{
   min-width: 320px;
   font-family: Roboto, Helvetica, sans-serif;
   text-align: center;
+  background: url("giphy.gif"); /* from W3 School */
+  background-size: cover;
 }
 heading{
   font-weight: 900;
@@ -16,9 +18,6 @@ footer{
   padding: 2px 2px;
 }
 #lets-play{
-  background-image: linear-gradient(to bottom right,#070F7F, #A482C3 );   /* from W3 School */
-  background: url("giphy.gif"); /* from W3 School */
-  background-size: cover;
   color: white;
   margin: 0 auto;
   height: 80px;
@@ -26,12 +25,11 @@ footer{
   padding-bottom: 0;
 }
 #jeopardy{
-  color:black;
-  text-decoration: underline white;
-  background-color: white;
-  text-shadow: 0 8px 2px aqua;
+  color:silver;
+  text-decoration: underline gold;
+  text-shadow: 0 8px 2px black;
   margin: 0 auto;
-  color: rgb(60, 60, 60);
+  
 }
 #create-game{
   font-family: 'Roboto Condensed', Helvetica, sans-serif;

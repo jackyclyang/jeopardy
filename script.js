@@ -1,14 +1,26 @@
 
 const BASIC_URL = "http://jservice.io/api/"
 const CATEGORIES_URL = BASIC_URL + "categories?count=6&offset=" + Math.random() * 1000
-let CLUE_URL = BASIC_URL + "clues/"
+let CLUES_URL = BASIC_URL + "clues/"
 let modal = document.getElementById("myModal")
 let clueContent = document.querySelector("#detailed-clue")
-let giveUp = document.querySelector(".give-up")
+let closeButton = document.querySelector(".close")
+let submit = document.querySelector('.submit')
 let categories = []
-
+let clueAnswers = []
+let clueAnswer
+let playerAnswer
+let downloadTimer
+let clueScore
+let playerScore = 0
+let timeleft = 10
+let timerElement = document.getElementById("countdown")
 let titleElements = document.querySelectorAll(".category")
 let clueElements = document.querySelectorAll(".clue")
+let correctAnswerElement = document.querySelector("#correct-answer")
+let scoreElement = document.querySelector("#score-number")
+
+
 
 // fetch categories from the first API
 fetchCategories(CATEGORIES_URL)
@@ -16,15 +28,21 @@ fetchCategories(CATEGORIES_URL)
 // When dollar amount clicked, open the modal
 for (let i = 0; i < 30; i++) {
   clueElements[i].addEventListener("click", () => {
-    showModal()
-    console.log(i % 5)
-    renderClues(i, (i % 5) + 1)
+    if (clueElements[i].style.color != "grey") {
+      showModal()
+      clueElements[i].style.color = "grey"
+      renderClues(i, (i % 5))
+    }
   })
 }
+
+// When "submit" clicked, check player answer
+submit.addEventListener("click", (e) => {
+  e.preventDefault()
+  checkAnswer()
+})
 // When "I give up" clicked, close the modal
-giveUp.addEventListener("click", closeModal)
-
-
+closeButton.addEventListener("click", closeModal)
 
 // Fetch 6 categories from the first API call and add to the page
 async function fetchCategories(url) {
@@ -33,7 +51,7 @@ async function fetchCategories(url) {
     for (let i = 0; i < 6; i++) {
       categories[i] = categoriesData.data[i]
     }
-    console.log(categories)
+    //console.log(categories)
     addTitles(categories)
 
   } catch (error) {
@@ -48,41 +66,118 @@ function addTitles(categories) {
   }
 }
 
-
 // when a dollar amount is clicked do the 2nd API call to get the clue
 async function renderClues(i, j) {
   let clueInModal = " "
-  let clueAnswer = " "
   let categoryIndex = Math.floor(i / 5)
   let categoryID = categories[categoryIndex].id
+  let new_clues_URL
 
-  CLUE_URL = CLUE_URL + "?value=" + j * 200 + "&category=" + categoryID
-  console.log(CLUE_URL)
+  new_clues_URL = CLUES_URL + "?category=" + categoryID
 
   try {
-    let clueData = await axios.get(CLUE_URL)
-    console.log(clueData)
-    clueInModal = clueData.data[0].question
-    clueAnswer = clueData.data[0].answer
-
+    let clueDataArray = await axios.get(new_clues_URL)
+    console.log(clueDataArray)
+    let clueData = clueDataArray.data[j]
+    clueInModal = clueData.question
     clueContent.innerHTML = clueInModal.toUpperCase()
-    console.log(categoryIndex)
+    // current dollar amount for this question
+    clueScore = (j + 1) * 200
+
+    // need to do data cleaning of clue answers
+    clueAnswer = clueData.answer
+    clueAnswers = []
+    if (clueAnswer.includes("<") || clueAnswer.includes("<i>")
+      || clueAnswer.includes(" or ") || clueAnswer.includes("/")
+      || clueAnswer.includes("\\") || clueAnswer.includes("(")
+      || clueAnswer.includes("\"")) {
+      clueAnswer = clueAnswer.replace("<i>", "")
+      clueAnswer = clueAnswer.replace("</i>", "")
+      clueAnswer = clueAnswer.replace("\\", "")
+      clueAnswer = clueAnswer.replace("<", "")
+      clueAnswer = clueAnswer.replace(">", "")
+      clueAnswer = clueAnswer.replace("(", "")
+      clueAnswer = clueAnswer.replace(")", "")
+      clueAnswer = clueAnswer.replace("/", "")
+      clueAnswer = clueAnswer.replace("\"", "")
+      if (clueAnswer.includes(" or ")) {
+        clueAnswers = clueAnswer.split(" or ")
+      }
+    }
+    console.log(clueAnswer)
+    clueAnswers.push(clueAnswer)
 
   } catch (error) {
     console.log(error)
   }
-
-
 }
 
 // Modal code (with some adjustments) from W3School: https://www.w3schools.com/howto/howto_css_modals.asp
 // When the user clicks on the button, open the modal
 function showModal() {
   modal.style.display = "block"
+  closeButton.style.display = "none"
+  countDown()
 }
 
-// When the user clicks on "I give up", close the modal
+// When the user clicks on "X", close the modal
 function closeModal(e) {
   e.preventDefault();
   modal.style.display = "none"
+  correctAnswerElement.innerHTML = ""
+  document.querySelector("input").value = ""
+  restartCountDown()
+}
+
+function checkAnswer() {
+  if (document.querySelector("input").value != "") {
+    playerAnswer = document.querySelector("input").value
+  }
+  else {
+    playerAnswer = "no-answer!"
+  }
+
+  for (let i = 0; i < clueAnswers.length; i++) {
+    if (timerElement.innerHTML === "0") {
+      correctAnswerElement.innerHTML = "The answer is " + clueAnswer
+      closeButton.style.display = "block"
+    }
+    else if (playerAnswer.toUpperCase() === clueAnswers[i].toUpperCase()) {
+      correctAnswerElement.innerHTML = "&#10003 Correct!"
+      playerScore = playerScore + clueScore
+      clearInterval(downloadTimer)
+      timerElement.innerHTML = "&nbsp"
+      closeButton.style.display = "block"
+    }
+    else {
+      correctAnswerElement.innerHTML = "Incorrect :( The answer is " + clueAnswer
+      playerScore = playerScore + clueScore * (-1)
+      closeButton.style.display = "block"
+      clearInterval(downloadTimer)
+      timerElement.innerHTML = "&nbsp"
+    }
+  }
+
+  scoreElement.innerText = playerScore
+  //console.log(playerAnswer)
+  //console.log(clueAnswer)
+}
+
+// countdown timer code (with minor adjustments) is from stackoverflow: https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
+function countDown() {
+  timeleft = 10;
+  downloadTimer = setInterval(function () {
+    document.getElementById("countdown").innerHTML = timeleft;
+    if (timeleft <= 0) {
+      clearInterval(downloadTimer);
+      checkAnswer()
+    }
+    timeleft -= 1;
+  }, 1000);
+}
+
+// stop the countdown when player submitted answer and clear it out
+function restartCountDown() {
+  clearInterval(downloadTimer)
+  timerElement.innerHTML = "10"
 }
