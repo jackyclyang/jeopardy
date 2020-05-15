@@ -6,27 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
   <title>Let's Play Jeopardy!</title>
 </head>
 
 <body>
   <heading>
-    <h1 id="lets-play">Let's Play </h1>
-    <h1 id="jeopardy">Jeopardy!</h1>
+    <h1 id="lets-play">Let's Play</h1>
+    <h1 id="jeopardy">JEOPARDY!</h1>
   </heading>
   <div id="rules">
-    <p>Rules</p>
+    <p>Special Rules</p>
   </div>
   <form action="game.html">
     <button id='create-game'>CREATE A GAME</button>
   </form>
 
 
+  <!-- Modal code from W3school: https://www.w3schools.com/howto/howto_css_modals.asp-->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span>&nbsp</span>
+        <span>Rules</span>
+        <span class='close'>&#10005</span>
+      </div>
+      <div class="modal-body">
+        <p>1. After a game is created, you can pick a category and a point value.</p>
+        <p>2. Click on the chosen box for the clue.</p>
+        <p>3. You have 10 seconds to read the clue and submit your answer.</p>
+        <p>4. You will gain the points if your answer is correct; lose if incorrect.</p>
+        <p>5. However, no points will be deducted if you fail to answer within 10 seconds.</p>
+        <p>6. You don't need to type "What is/Who is" in your answer.</p>
+        <p>7. HAVE FUN!</p>
+      </div>
+    </div>
+
+  </div>
+
 
 </body>
 <footer>
   <p>Designed and developed by Jacky C. Yang</p>
+  <p>API from http://jservice.io/ Gradient GIF from Giphy by @giphyworldgifs</p>
 </footer>
 
 </html>

@@ -32,6 +32,7 @@ for (let i = 0; i < 30; i++) {
       showModal()
       clueElements[i].style.color = "grey"
       renderClues(i, (i % 5))
+      clueElements[i].classList.add("clicked-clue") // disable the clicked clue
     }
   })
 }
@@ -79,6 +80,14 @@ async function renderClues(i, j) {
     let clueDataArray = await axios.get(new_clues_URL)
     console.log(clueDataArray)
     let clueData = clueDataArray.data[j]
+
+    if (clueData.question != "") {
+      clueInModal = clueData.question
+    }
+    else {
+      clueData = clueDataArray.data[j + 1]
+    }
+
     clueInModal = clueData.question
     clueContent.innerHTML = clueInModal.toUpperCase()
     // current dollar amount for this question
@@ -117,6 +126,8 @@ async function renderClues(i, j) {
 function showModal() {
   modal.style.display = "block"
   closeButton.style.display = "none"
+  let inputField = document.querySelector("input")
+  inputField.focus();
   countDown()
 }
 

@@ -15,7 +15,7 @@
 
 <body>
   <heading>
-    <h3>Let's Play Jeopardy!</h3>
+    <h3><span id="jeopardy">JEOPARDY!</span></h3>
     <div id="my-score">My Score: <span id="score-number">0</span></div>
   </heading>
 
@@ -80,15 +80,17 @@
     <!-- Modal content -->
     <div class="modal-content">
       <div class="modal-header">
-        <span class='close'>&#10005</span>
         <span id="countdown">10</span>
+        <span class='close'>&#10005</span>
       </div>
-      <p id="detailed-clue">Your clue here.</p>
-      <form>
-        <input type="text" placeholder="Answer here" value=""><br>
-        <button class='submit'>Submit</button><br>
-        <p id="correct-answer"></p>
-      </form>
+      <div class="modal-body">
+        <p id="detailed-clue">Your clue here.</p>
+        <form>
+          <input type="text" placeholder="Answer here" value=""><br>
+          <button class='submit'>Submit</button><br>
+          <p id="correct-answer"></p>
+        </form>
+      </div>
     </div>
 
   </div>
