@@ -116,13 +116,11 @@ async function renderClues(i, j) {
     console.log(clueDataArray)
     let clueData = clueDataArray.data[j]
 
-    if (clueData.question != "") {
-      clueInModal = clueData.question
-    }
-    else {
+    // Some API data returns empty array
+    if (clueData.question === "") {
       clueData = clueDataArray.data[j + 1]
     }
-
+    
     clueInModal = clueData.question
     clueContent.innerHTML = clueInModal.toUpperCase()
     // current dollar amount for this question
