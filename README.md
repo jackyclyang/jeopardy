@@ -72,12 +72,12 @@ Game Page (Mobile):
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|May 11| Project Prompt and Project Approval | WIP 
-|May 12| Core Application Structure and Pseudocode | 
-|May 13| Fetch random categories and clickable clues  |
-|May 13| Fetch clues from the API and check user input | 
-|May 14| Record user scores | 
-|May 14| MVP and finalize formatting | 
+|May 11| Project Prompt and Project Approval | Complete 
+|May 12| Core Application Structure and Pseudocode | Complete 
+|May 13| Fetch random categories and clickable clues  | Complete 
+|May 13| Fetch clues from the API and check user input | Complete 
+|May 14| Record user scores | Complete 
+|May 14| MVP and finalize formatting | Complete 
 |May 15| Present | 
 
 ## Priority Matrix
@@ -89,19 +89,50 @@ Game Page (Mobile):
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| HTML Structure | M | 2hrs|  |  |
-| Basic CSS | M | 2hrs|  |  |
-| Creating a game with random categories from the API | H | 4hrs|  |  |
-| Fetch the clues from the API for each category | H | 4hrs|  |  |
-| Check user answers and record scores | H | 4hrs|  |  |
-| Clickable clue popup and input form | H | 4hrs|  |  |
-| Track scores | H | 4hrs|  |  |
-| Finish/quit game and display results | H | 4hrs|  |  |
-| Additional styling | L | 4hrs|  |  |
-| Total | H | 32hrs|  |  |
+| HTML Structure | M | 2hrs| 2hrs | 2hrs |
+| Basic CSS | M | 2hrs| 2hrs | 2hrs |
+| Creating a game with random categories from the API | H | 4hrs| 3hrs | 3hrs |
+| Fetch the clues from the API for each category | H | 4hrs| 3hrs | 3hrs |
+| Check user answers and record scores | H | 4hrs| 4hrs | 4hrs |
+| Clickable clue popup and input form | H | 4hrs| 4hrs | 4hrs |
+| Track scores | H | 4hrs| 3hrs | 3hrs |
+| Finish/quit game and display results | H | 4hrs| 3hrs | 3hrs |
+| Additional styling | L | 4hrs| 4hrs | 4hrs |
+| Total | H | 32hrs| 28hrs | 28hrs |
 
 ## Code Snippet
+```javascript
+// when a dollar amount is clicked do the 2nd API call to get the clue
+async function renderClues(i, j) {
+  let clueInModal = " "
+  let categoryIndex = Math.floor(i / 5) // To calculate which category is it in the cateogires array
+  let categoryID = categories[categoryIndex].id
+  let new_clues_URL
 
+  new_clues_URL = CLUES_URL + "?category=" + categoryID
+
+  try {
+    let clueDataArray = await axios.get(new_clues_URL)
+    console.log(clueDataArray)
+    let clueData = clueDataArray.data[j]
+
+    if (clueData.question != "") {
+      clueInModal = clueData.question
+    }
+    else {
+      clueData = clueDataArray.data[j + 1]
+    }
+
+    clueInModal = clueData.question
+    clueContent.innerHTML = clueInModal.toUpperCase()
+    // current dollar amount for this question
+    clueScore = (j + 1) * 200
+
+    // need to do some data cleaning of clue answers (e.g. remove html formatting and situations like the answer is "A (or B)")
+    clueAnswer = clueData.answer
+    clueAnswers = []
+
+```
 
 ## Change Log
-
+- Add the timer from PostMVP into MVP to enhance the game play
