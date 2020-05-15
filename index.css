@@ -30,7 +30,7 @@ footer{
   -webkit-text-stroke-width: 1px; /* Adding trokes: from https://css-tricks.com/adding-stroke-to-web-text/ */
   -webkit-text-stroke-color: rgb(65, 65, 65);
   margin: 4px auto;
-  font-family: "Gyparody", Roboto, sans-serif;
+  font-family: "Gyparody", 'Londrina Solid', Roboto, sans-serif;
   font-size: 84px;
 }
 #create-game{

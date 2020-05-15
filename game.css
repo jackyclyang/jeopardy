@@ -103,7 +103,7 @@ button:hover{
   margin: 10px;
 }
 #jeopardy{
-  font-family: "Gyparody", Roboto, sans-serif;
+  font-family: "Gyparody", 'Londrina Solid', Roboto, sans-serif;
   color: #F7C800;
   text-shadow: 1px 2px 4px rgb(65, 65, 65);
   font-size: 28px;
