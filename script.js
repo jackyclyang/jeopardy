@@ -1,5 +1,5 @@
 // APIs
-const BASIC_URL = "http://jservice.io/api/"
+const BASIC_URL = "https://jservice.io/api/"
 const CATEGORIES_URL = BASIC_URL + "categories?count=6&offset=" + Math.random() * 1000
 let CLUES_URL = BASIC_URL + "clues/"
 
@@ -152,7 +152,7 @@ function checkAnswer() {
 
   for (let i = 0; i < clueAnswers.length; i++) {
     if (timerElement.innerHTML === "0") {
-      correctAnswerElement.innerHTML = "The answer is " + clueAnswer
+      correctAnswerElement.innerHTML = "The answer is " + clueAnswers[0]
       closeButton.style.display = "block"
     }
     else if (playerAnswer.toUpperCase() === clueAnswers[i].toUpperCase()) {
@@ -163,7 +163,7 @@ function checkAnswer() {
       closeButton.style.display = "block"
     }
     else {
-      correctAnswerElement.innerHTML = "Incorrect :( The answer is " + clueAnswer
+      correctAnswerElement.innerHTML = "Incorrect :( The answer is " + clueAnswers[0]
       playerScore = playerScore + clueScore * (-1)
       closeButton.style.display = "block"
       clearInterval(downloadTimer)
