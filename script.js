@@ -1,5 +1,5 @@
 // APIs
-const BASIC_URL = "http://jservice.io/api/"
+const BASIC_URL = "https://jservice.io/api/"
 const CATEGORIES_URL = BASIC_URL + "categories?count=6&offset=" + Math.random() * 1000
 let CLUES_URL = BASIC_URL + "clues/"
 
