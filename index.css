@@ -2,28 +2,26 @@ body{
   min-width: 320px;
   font-family: Roboto, Helvetica, sans-serif;
   text-align: center;
-  background: url("giphy.gif"); /* from W3 School */
-  background-size: cover;
-}
-heading{
-  font-weight: 900;
-  font-size: 36px;
-  margin: 10px auto;
 }
 footer{
   margin-bottom: 0px;
-  color: whitesmoke;
-  font-size: 14px;
+  color: rgb(46, 46, 46);
+  font-size: 12px;
   text-align: center;
-  padding: 2px 2px;
+}
+.heading{
+  background-color: lightskyblue;
+  background: url("giphy.gif"); /* from W3 School */
+  background-size: cover;
+  font-weight: 900;
+  font-size: 36px;
+  margin: 10px auto;
+  padding: 60px 10px;
 }
 #lets-play{
   color: white;
   margin: 0 auto;
-  height: 80px;
-  padding-top: 120px;
-  padding-bottom: 0;
-  font-size: 80px;
+  font-size: 74px;
   font-family: 'Roboto', sans-serif;
 }
 #jeopardy{
@@ -33,11 +31,11 @@ footer{
   -webkit-text-stroke-color: rgb(65, 65, 65);
   margin: 4px auto;
   font-family: "Gyparody", Roboto, sans-serif;
-  font-size: 88px;
+  font-size: 84px;
 }
 #create-game{
   font-family: 'Roboto Condensed', Helvetica, sans-serif;
-  margin: 40px auto 60px auto;
+  margin: 40px auto 100px auto;
   height: 80px;
   padding: 20px 60px;
   font-size: 28px;
@@ -52,7 +50,21 @@ footer{
   background: url("giphy.gif"); /* from W3 School */
   background-size: cover;
   border: 4px solid white;
-  box-shadow: 0px 4px 6px grey;
+  box-shadow: 0px 4px 10px rgb(65, 65, 65);
+  transition: 0.3s;
+}
+#special-rules{
+  font-family: 'Roboto Condensed', Helvetica, sans-serif;
+  text-decoration:underline;
+  font-size: 28px;
+  font-weight: 800;
+  background:transparent;
+  color: rgb(46, 46, 46);
+  border: 0px;
+}
+#special-rules:hover{
+  cursor: pointer;
+  text-shadow: 1px 4px 10px rgb(194, 194, 194);
   transition: 0.3s;
 }
 #rules{
@@ -70,8 +82,8 @@ footer{
   width: 100%; 
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  background-color: whitesmoke; /* Fallback color */
+  background-color: rgba(255,255,255,0.6); /* Black w/ opacity */
 }
 /* Modal Content/Box */
 .modal-content {
@@ -80,15 +92,41 @@ footer{
   background: #070F7F;
   color: white;
   margin: 10% auto; /* 10% from the top and centered */
-  padding: 40px 100px;
-  border: 1px solid white;
+  padding: 20px 50px;
+  border: 0px solid white;
   border-radius: 10px;
-  width: 50%; /* depending on screen size */
+  max-width: 690px;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
+  box-shadow: 0px 4px 10px rgb(65, 65, 65);
 }
 .modal-header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 10px 2px;
+  font-size: 24px;
+}
+.modal-body{
+  text-align: left;
+  font-family: Helvetica, sans-serif;
+  font-weight: 400;
+}
+.close:hover,
+.close:focus {
+  color: rgb(51, 59, 181);
+  text-shadow: 1px 4px 10px rgb(65, 65, 65);
+  text-decoration: none;
+  cursor: pointer;
+}
+@media (max-width: 400px) {
+  #lets-play{
+    font-size: 60px;
+  }
+  #jeopardy{
+    font-size: 70px;
+  }
+  #create-game{
+    padding: 20px 40px;
+  }
 }

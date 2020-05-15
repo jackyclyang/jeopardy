@@ -109,6 +109,7 @@ async function renderClues(i, j) {
       clueAnswer = clueAnswer.replace(")", "")
       clueAnswer = clueAnswer.replace("/", "")
       clueAnswer = clueAnswer.replace("\"", "")
+      clueAnswer = clueAnswer.replace("\"", "")
       if (clueAnswer.includes(" or ")) {
         clueAnswers = clueAnswer.split(" or ")
       }
