@@ -1,20 +1,23 @@
-
+// APIs
 const BASIC_URL = "http://jservice.io/api/"
 const CATEGORIES_URL = BASIC_URL + "categories?count=6&offset=" + Math.random() * 1000
 let CLUES_URL = BASIC_URL + "clues/"
-let modal = document.getElementById("myModal")
-let clueContent = document.querySelector("#detailed-clue")
-let closeButton = document.querySelector(".close")
-let submit = document.querySelector('.submit')
-let categories = []
-let clueAnswers = []
+
+let categories = [] // To store categories from the first API call
+let clueAnswers = [] // For the data cleaning of each clue's answer(s)
 let clueAnswer
 let playerAnswer
 let downloadTimer
 let clueScore
 let playerScore = 0
 let timeleft = 10
+
+// DOM elements
+let clueContent = document.querySelector("#detailed-clue")
+let closeButton = document.querySelector(".close")
+let submit = document.querySelector('.submit')
 let timerElement = document.getElementById("countdown")
+let modal = document.getElementById("myModal")
 let titleElements = document.querySelectorAll(".category")
 let clueElements = document.querySelectorAll(".clue")
 let correctAnswerElement = document.querySelector("#correct-answer")
@@ -52,7 +55,6 @@ async function fetchCategories(url) {
     for (let i = 0; i < 6; i++) {
       categories[i] = categoriesData.data[i]
     }
-    //console.log(categories)
     addTitles(categories)
 
   } catch (error) {
@@ -70,7 +72,7 @@ function addTitles(categories) {
 // when a dollar amount is clicked do the 2nd API call to get the clue
 async function renderClues(i, j) {
   let clueInModal = " "
-  let categoryIndex = Math.floor(i / 5)
+  let categoryIndex = Math.floor(i / 5) // To calculate which category is it in the cateogires array
   let categoryID = categories[categoryIndex].id
   let new_clues_URL
 
@@ -93,7 +95,7 @@ async function renderClues(i, j) {
     // current dollar amount for this question
     clueScore = (j + 1) * 200
 
-    // need to do data cleaning of clue answers
+    // need to do some data cleaning of clue answers (e.g. remove html formatting and situations like the answer is "A (or B)")
     clueAnswer = clueData.answer
     clueAnswers = []
     if (clueAnswer.includes("<") || clueAnswer.includes("<i>")
@@ -141,12 +143,13 @@ function closeModal(e) {
   restartCountDown()
 }
 
+// Check if the player has the right answer
 function checkAnswer() {
   if (document.querySelector("input").value != "") {
     playerAnswer = document.querySelector("input").value
   }
   else {
-    playerAnswer = "no-answer!"
+    playerAnswer = "no-answer!" // if no answer
   }
 
   for (let i = 0; i < clueAnswers.length; i++) {
@@ -169,10 +172,7 @@ function checkAnswer() {
       timerElement.innerHTML = "&nbsp"
     }
   }
-
   scoreElement.innerText = playerScore
-  //console.log(playerAnswer)
-  //console.log(clueAnswer)
 }
 
 // countdown timer code (with minor adjustments) is from stackoverflow: https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown

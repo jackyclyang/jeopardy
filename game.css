@@ -141,7 +141,7 @@ button:hover{
   flex-wrap: nowrap;
   align-items: center;
   background: grey;
-  margin: 2px;
+  margin: 1px;
   text-align: center;
   border-radius: 4px;
 }
