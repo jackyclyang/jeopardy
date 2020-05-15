@@ -136,4 +136,4 @@ async function renderClues(i, j) {
 
 ## Change Log
 - Add the timer from PostMVP into MVP to enhance the game play
-- Have to spend extra time on data cleaning due to the API's limitation on its answers
+- Extra data cleaning due to the API's limitation on its answers
